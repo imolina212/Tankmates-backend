@@ -6,7 +6,7 @@ const studentData = require('../studentData.json');
 
 router.get('/', (request, response) => {
 
-    let { limit=25, min=0, max=INFINITY } = request.query;
+    let { limit=25, min=0, max } = request.query;
 
     limit = Number(limit);
 
@@ -35,8 +35,7 @@ router.get('/:id', (request, response) => {
         const singleStudent = studentData.students.find(student => {
             return student.id === studentId;
         });
-
-        console.log(singleStudent);
+        
         if(singleStudent){
             response.json(singleStudent);
         } else {
