@@ -24,6 +24,19 @@ router.get('/', (request, response) => {
     // }
 })
 
+//write a route to get a student by their full name
+
+//implement min an max ids for get students
+
+//write a route to get the grade average of a student by their id
+
+//get all students sorted by their last name
+
+
+
+
+
+
 router.get('/:id', (request, response) => {
     try{
         const studentId = request.params.id;
