@@ -10,6 +10,8 @@ const namesRouter = require('./routers/namesRouter')
 
 //middleware
 app.use(cors());
+app.use(express.json());
+
 app.use('/species', speciesRouter);
 app.use('/names', namesRouter);
 

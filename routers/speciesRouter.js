@@ -4,24 +4,39 @@ const router = express.Router();
 //student dummy data
 const studentData = require('../studentData.json');
 
-router.get('/', (request, response) => {
+const db = require("../db/index");
 
-    let { limit=25, min=0, max } = request.query;
+
+router.get('/', async (request, response) => {
+
+    let { limit=25, min, max } = request.query;
 
     limit = Number(limit);
 
-    let studentDataForDelivery = {...studentData};
+    let speciesDataForDelivery = await db.any('SELECT * FROM species');
+    
+    speciesDataForDelivery = speciesDataForDelivery.slice(0, limit)
 
-    studentDataForDelivery.students = studentDataForDelivery.students.slice(0, limit)
+    response.send(speciesDataForDelivery);
 
-    response.send(studentDataForDelivery);
 
-    // //SELECT * FROM species
-    // if(!min && !max){
-    //     //SELECT * FROM species LIMIT $1, [limit]
-    // } else {
-    // //SELECT * FROM species WHERE id >= $1 AND id <= $2 LIMIT $3, [min, max, limit] 
-    // }
+})
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const speciesId = req.params.id;
+        
+        await db.none('DELETE FROM water_parameters WHERE species_id = $1', [speciesId]);
+
+        const deletedSpecies = await db.one('DELETE FROM species WHERE id = $1 RETURNING *', [speciesId]);
+
+        res.json(deletedSpecies);
+
+    } catch (err) {
+
+        res.status(500).send(err);
+
+    }
 })
 
 //write a route to get a student by their full name
@@ -35,24 +50,22 @@ router.get('/', (request, response) => {
 
 
 
-
-
 router.get('/:id', (request, response) => {
     try{
-        const studentId = request.params.id;
+        const speciesId = request.params.id;
 
-        if(!/[0-9]/.test(studentId)){
-            response.send('Student id must be a number');
+        if(!/[0-9]/.test(speciesId)){
+            response.send('Species id must be a number');
         }
 
-        const singleStudent = studentData.students.find(student => {
-            return student.id === studentId;
+        const singleSpecies = studentData.students.find(student => {
+            return student.id === speciesId;
         });
         
-        if(singleStudent){
-            response.json(singleStudent);
+        if(singleSpecies){
+            response.json(singleSpecies);
         } else {
-            response.send('Student not found');
+            response.send('Species not found');
         }
     } catch(err){
         response.status(500).send("An error occurred");
