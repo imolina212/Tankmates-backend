@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-//student dummy data
-const studentData = require('../studentData.json');
 
 const db = require("../db/index");
 
@@ -20,6 +18,30 @@ router.get('/', async (request, response) => {
     response.send(speciesDataForDelivery);
 
 
+})
+
+// router.put('\:id', async (req, res) => {
+
+// })
+
+router.get('/:id', async (request, response) => {
+    try{
+        const speciesId = request.params.id;
+
+        if(!/[0-9]/.test(speciesId)){
+            response.send('Species id must be a number');
+        }
+
+        const singleSpecies = await db.oneOrNone('SELECT * FROM species WHERE id = $1', [speciesId])
+        
+        if(singleSpecies){
+            response.json(singleSpecies);
+        } else {
+            response.send('Species not found');
+        }
+    } catch(err){
+        response.status(500).send("An error occurred");
+    }
 })
 
 router.delete('/:id', async (req, res) => {
@@ -50,26 +72,5 @@ router.delete('/:id', async (req, res) => {
 
 
 
-router.get('/:id', (request, response) => {
-    try{
-        const speciesId = request.params.id;
-
-        if(!/[0-9]/.test(speciesId)){
-            response.send('Species id must be a number');
-        }
-
-        const singleSpecies = studentData.students.find(student => {
-            return student.id === speciesId;
-        });
-        
-        if(singleSpecies){
-            response.json(singleSpecies);
-        } else {
-            response.send('Species not found');
-        }
-    } catch(err){
-        response.status(500).send("An error occurred");
-    }
-})
 
 module.exports = router;
