@@ -6,7 +6,6 @@ CREATE DATABASE tankmates_app;
 
 \c tankmates_app;
 
-
 CREATE TABLE species (
     id SERIAL PRIMARY KEY,
     species_name TEXT,
