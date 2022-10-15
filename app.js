@@ -17,7 +17,7 @@ app.use('/names', namesRouter);
 
 //route
 app.get('/', (_, response) => {
-    response.send("Hello World")
+    response.send("Welcome to Tankmates app")
 })
 
 //export app
