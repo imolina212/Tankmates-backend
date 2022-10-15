@@ -32,7 +32,7 @@ router.get('/:id', async (request, response) => {
             response.send('Species id must be a number');
         }
 
-        const singleSpecies = await db.oneOrNone('SELECT * FROM species WHERE id = $1', [speciesId])
+        const singleSpecies = await db.oneOrNone('SELECT * FROM species WHERE species_id = $1', [speciesId])
         
         if(singleSpecies){
             response.json(singleSpecies);

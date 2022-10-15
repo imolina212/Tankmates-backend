@@ -1,6 +1,6 @@
 \c tankmates_app;
 
-INSERT INTO species (id, species_name, scientific_name, origin, pic)
+INSERT INTO species (species_id, species_name, scientific_name, origin, pic)
 VALUES
 (1, 'Crystal Red Shrimp', 'Caridina cf. cantonensis', 'China', 'https://aquadiction.world/img/profile/crystal-red-shrimp2.jpg'),
 (2, 'Red Cherry Shrimp', 'Neocaridina Heteropoda', 'China', 'https://www.serendipitywave.com/wp-content/uploads/2020/08/Neocaridina-davidi-Red-Sakura.jpg'),
