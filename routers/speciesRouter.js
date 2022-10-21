@@ -1,38 +1,35 @@
 const express = require('express');
-const router = express.Router();
+const species = express.Router();
+
+const {
+    getSpeciesList, getSingleSpecies,
+    getSingleSpecies
+} = require("../queries/species.js")
 
 
-const db = require("../db/index");
-
-
-router.get('/', async (request, response) => {
-
-    let { limit=25, min, max } = request.query;
-
-    limit = Number(limit);
-
-    let speciesDataForDelivery = await db.any('SELECT * FROM species');
-    
-    speciesDataForDelivery = speciesDataForDelivery.slice(0, limit)
-
-    response.send(speciesDataForDelivery);
-
-
+species.get('/', async (_, response) => {
+    try{
+        const speciesList = await getSpeciesList();
+        
+        if(speciesList.length === 0) {
+            response.status(500).json({error: "No Species Found"})
+        } else {
+            response.status(200).json(speciesList)
+        }
+    } catch(err) {
+        console.log(err)
+    }
 })
 
-// router.put('\:id', async (req, res) => {
-
-// })
-
-router.get('/:id', async (request, response) => {
+species.get('/:id', async (request, response) => {
+    const speciesId = request.params.id;
+    
     try{
-        const speciesId = request.params.id;
-
         if(!/[0-9]/.test(speciesId)){
             response.send('Species id must be a number');
         }
 
-        const singleSpecies = await db.oneOrNone('SELECT * FROM species WHERE species_id = $1', [speciesId])
+        const singleSpecies = await getSingleSpecies(speciesId);
         
         if(singleSpecies){
             response.json(singleSpecies);
@@ -44,33 +41,4 @@ router.get('/:id', async (request, response) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
-    try {
-        const speciesId = req.params.id;
-        
-        await db.none('DELETE FROM water_parameters WHERE species_id = $1', [speciesId]);
-
-        const deletedSpecies = await db.one('DELETE FROM species WHERE id = $1 RETURNING *', [speciesId]);
-
-        res.json(deletedSpecies);
-
-    } catch (err) {
-
-        res.status(500).send(err);
-
-    }
-})
-
-//write a route to get a student by their full name
-
-//implement min an max ids for get students
-
-//write a route to get the grade average of a student by their id
-
-//get all students sorted by their last name
-
-
-
-
-
-module.exports = router;
+module.exports = species;
