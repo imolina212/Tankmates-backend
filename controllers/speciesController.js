@@ -1,10 +1,7 @@
 const express = require('express');
 const species = express.Router();
 
-const {
-    getSpeciesList, getSingleSpecies,
-    getSingleSpecies
-} = require("../queries/species.js")
+const { getSpeciesList, getSingleSpecies } = require("../queries/species.js");
 
 
 species.get('/', async (_, response) => {
