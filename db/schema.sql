@@ -28,6 +28,16 @@ CREATE TABLE species (
     max_length DECIMAL
 );
 
+CREATE TABLE product (
+    id SERIAL PRIMARY KEY,
+    product_name TEXT,
+    brand TEXT,
+    pic TEXT,
+    rating DECIMAL,
+    price INT,
+    in_stock boolean,
+    product_description TEXT
+);
 
 
 

@@ -5,15 +5,15 @@ const cors = require('cors');
 //initialize app
 const app = express();
 
-const speciesRouter = require('./routers/speciesRouter');
-const namesRouter = require('./routers/namesRouter')
+const speciesController = require('./controllers/speciesController');
+const productsController = require('./controllers/productsController');
 
 //middleware
 app.use(cors());
 app.use(express.json());
 
 app.use('/species', speciesRouter);
-app.use('/names', namesRouter);
+app.use('/products', productsRouter);
 
 //route
 app.get('/', (_, response) => {
