@@ -8,7 +8,8 @@
     "dev": "nodemon server.js",
     "test": "jest",
     "db:init": "psql -U postgres -f db/schema.sql",
-    "db:seed": "psql -U postgres -f db/seed.sql"
+    "db:seed": "psql -U postgres -f db/seed.sql",
+    "db:reset": "psql -U postgres -f db/schema.sql && psql -U postgres -f db/seed.sql"
   },
   "author": "Isidro Molina",
   "license": "ISC",

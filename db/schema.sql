@@ -6,11 +6,18 @@ CREATE DATABASE tankmates_app;
 
 \c tankmates_app;
 
+CREATE TABLE origin (
+    id SERIAL PRIMARY KEY,
+    origin_name TEXT
+);
+
+DROP TABLE IF EXISTS species;
+
 CREATE TABLE species (
     id SERIAL PRIMARY KEY,
     species_name TEXT,
     scientific_name TEXT,
-    origin_id INT REFERENCES origin(id),
+    origin_id INT REFERENCES origin(id) ON DELETE CASCADE,
     pic TEXT,
     species_type TEXT,
     min_temp INT,
@@ -22,9 +29,5 @@ CREATE TABLE species (
 );
 
 
-DROP TABLE IF EXISTS origin;
 
-CREATE TABLE origin (
-    id SERIAL PRIMARY KEY,
-    origin_name TEXT
-);
+
