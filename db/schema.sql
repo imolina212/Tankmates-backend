@@ -28,7 +28,7 @@ CREATE TABLE species (
     max_length DECIMAL
 );
 
-CREATE TABLE product (
+CREATE TABLE products (
     id SERIAL PRIMARY KEY,
     product_name TEXT,
     brand TEXT,

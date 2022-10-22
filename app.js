@@ -12,8 +12,8 @@ const productsController = require('./controllers/productsController');
 app.use(cors());
 app.use(express.json());
 
-app.use('/species', speciesRouter);
-app.use('/products', productsRouter);
+app.use('/species', speciesController);
+app.use('/products', productsController);
 
 //route
 app.get('/', (_, response) => {
