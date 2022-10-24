@@ -32,6 +32,7 @@ CREATE TABLE products (
     id SERIAL PRIMARY KEY,
     product_name TEXT,
     brand TEXT,
+    category TEXT,
     pic TEXT,
     rating DECIMAL,
     price INT,
