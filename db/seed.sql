@@ -10,7 +10,6 @@ VALUES
 ('Australia/Oceania'),
 ('Antartica');
 
-
 INSERT INTO species (species_name, scientific_name, origin_id, pic, species_type, min_temp, max_temp, min_ph, max_ph, temperament, max_length)
 VALUES
 ('Crystal Red Shrimp', 'Caridina cf. cantonensis', 1, 'https://aquadiction.world/img/profile/crystal-red-shrimp2.jpg', 'Invertebrates', 62, 76, 5.8, 7.4, 'Peaceful', 1.5),
@@ -35,3 +34,13 @@ VALUES
 ('Submersible Glass Aquarium Heater', 'Fluval', 'Heating & Lighting', '/productImages/fluvalHeater.webp', 3.5, 18, true, 'Keep your fish happy, healthy and swimming in comfort with the Fluval Submersible Glass Aquarium Heater. This sleek and compact submersible heater provides exceptional performance and unsurpassed reliability in both fresh and saltwater tanks. Made from high-density ceramic, the heating element is encased in shock-resistant borosilicate glass and features a temperature range of 68-86 degrees F. To help maintain the aesthetics of your aquatic display, the unique reflective technology of the outer casing makes the heater virtually invisible in your tank. For your convenience, dual suction cups allow you to easily install it inside your aquarium.'),
 ('Pond Koi Vibrance Color Enhancing Sticks Koi & Goldfish Food', 'Tetra', 'Pond Shop', '/productImages/tetrakoifishfood.jpg', 3.5, 18, true, 'Feed your pond fish a summer diet that will enhance coloration with Tetra Pond Koi Vibrance Color Enhancing Sticks Koi & Goldfish Food. Pond fish require appropriate nutrition for each season to support growth, metabolic changes and other biological activities. Tetra Pond Koi Vibrance Color Enhancing Sticks Koi & Goldfish Food contains protein from fish meal and natural red and yellow color enhancers. These lightweight sticks soften quickly in the water, making them easier to digest for less waste and cleaner water. Tetra Pond Koi Vibrance Color Enhancing Sticks Koi & Goldfish Food also floats longer so you can watch your fish feed on the waters surface.'),
 ('Everyday Fish Feeder Food Dispenser', 'Ehiem', 'Feeders', '/productImages/ehiemfeeder.webp', 3.5, 18, true, 'No more asking the neighbors to drop in to feed your fish—Eheims innovative Everyday Fish Feeder Food Dispenser makes it easy to keep your finny friends happy and healthy while you travel! This revolutionary product allows you to effortlessly program feeding times along with the amount of food youd like dispensed. Its compact design and splash-proof buttons serve to make this advanced product just as functional as it is stylish. Plus, with a digital display and built-in warning system, youll receive ample warning whenever its running out of battery. Whether its a weekend getaway or a week-long vacation, Eheims feeding solution is an elegant way to keep things running swimmingly while youre away.');
+
+INSERT INTO tanks (tank_name, size, is_saltwater, waterchange_frequency)
+VALUES
+('Planted Tank', 55, false, 4),
+('Display Tank', 120, false, 4);
+
+INSERT INTO species_in_tank (tank_id, species_id)
+VALUES
+(1, 1),
+(2, 9);

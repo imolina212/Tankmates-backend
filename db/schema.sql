@@ -28,6 +28,8 @@ CREATE TABLE species (
     max_length DECIMAL
 );
 
+DROP TABLE IF EXISTS products;
+
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
     product_name TEXT,
@@ -40,5 +42,21 @@ CREATE TABLE products (
     product_description TEXT
 );
 
+DROP TABLE IF EXISTS tanks;
 
+CREATE TABLE tanks (
+    id SERIAL PRIMARY KEY,
+    tank_name TEXT,
+    size INT,
+    is_saltwater BOOLEAN,
+    waterchange_frequency INT
+);
+
+DROP TABLE IF EXISTS species_in_tank;
+
+CREATE TABLE species_in_tank (
+    id SERIAL PRIMARY KEY,
+    tank_id INT REFERENCES tanks(id) ON DELETE CASCADE,
+    species_id INT REFERENCES species(id) ON DELETE CASCADE
+);
 
