@@ -1,5 +1,9 @@
 \c tankmates_app;
 
+INSERT INTO users (username)
+VALUES
+('isidromolina');
+
 INSERT INTO origin (origin_name)
 VALUES
 ('Asia'),
@@ -35,10 +39,10 @@ VALUES
 ('Pond Koi Vibrance Color Enhancing Sticks Koi & Goldfish Food', 'Tetra', 'Pond Shop', '/productImages/tetrakoifishfood.jpg', 3.5, 18, true, 'Feed your pond fish a summer diet that will enhance coloration with Tetra Pond Koi Vibrance Color Enhancing Sticks Koi & Goldfish Food. Pond fish require appropriate nutrition for each season to support growth, metabolic changes and other biological activities. Tetra Pond Koi Vibrance Color Enhancing Sticks Koi & Goldfish Food contains protein from fish meal and natural red and yellow color enhancers. These lightweight sticks soften quickly in the water, making them easier to digest for less waste and cleaner water. Tetra Pond Koi Vibrance Color Enhancing Sticks Koi & Goldfish Food also floats longer so you can watch your fish feed on the waters surface.'),
 ('Everyday Fish Feeder Food Dispenser', 'Ehiem', 'Feeders', '/productImages/ehiemfeeder.webp', 3.5, 18, true, 'No more asking the neighbors to drop in to feed your fish—Eheims innovative Everyday Fish Feeder Food Dispenser makes it easy to keep your finny friends happy and healthy while you travel! This revolutionary product allows you to effortlessly program feeding times along with the amount of food youd like dispensed. Its compact design and splash-proof buttons serve to make this advanced product just as functional as it is stylish. Plus, with a digital display and built-in warning system, youll receive ample warning whenever its running out of battery. Whether its a weekend getaway or a week-long vacation, Eheims feeding solution is an elegant way to keep things running swimmingly while youre away.');
 
-INSERT INTO tanks (tank_name, size, is_saltwater, waterchange_frequency)
+INSERT INTO tanks (tank_name, user_id, size, is_saltwater, waterchange_frequency)
 VALUES
-('Planted Tank', 55, false, 4),
-('Display Tank', 120, false, 4);
+('Planted Tank', 1, 55, false, 4),
+('Display Tank', 1, 120, false, 4);
 
 INSERT INTO species_in_tank (tank_id, species_id)
 VALUES

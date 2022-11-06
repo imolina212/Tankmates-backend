@@ -6,6 +6,15 @@ CREATE DATABASE tankmates_app;
 
 \c tankmates_app;
 
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username TEXT
+);
+
+DROP TABLE IF EXISTS origin;
+
 CREATE TABLE origin (
     id SERIAL PRIMARY KEY,
     origin_name TEXT
@@ -46,6 +55,7 @@ DROP TABLE IF EXISTS tanks;
 
 CREATE TABLE tanks (
     id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
     tank_name TEXT,
     size INT,
     is_saltwater BOOLEAN,
@@ -59,4 +69,5 @@ CREATE TABLE species_in_tank (
     tank_id INT REFERENCES tanks(id) ON DELETE CASCADE,
     species_id INT REFERENCES species(id) ON DELETE CASCADE
 );
+
 
