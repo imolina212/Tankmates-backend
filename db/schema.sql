@@ -70,4 +70,17 @@ CREATE TABLE species_in_tank (
     species_id INT REFERENCES species(id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS tank_history;
+
+CREATE TABLE tank_history (
+    id SERIAL PRIMARY KEY,
+    tank_id INT REFERENCES tanks(id) ON DELETE CASCADE,
+    waterchange_date DATE,
+    gallons_changed INT,
+    ph DECIMAL,
+    ammonia INT,
+    nitrite INT,
+    nitrate INT
+);
+
 

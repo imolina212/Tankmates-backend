@@ -48,3 +48,11 @@ INSERT INTO species_in_tank (tank_id, species_id)
 VALUES
 (1, 1),
 (2, 9);
+
+INSERT INTO tank_history (tank_id, waterchange_date, gallons_changed, ph, ammonia, nitrite, nitrate)
+VALUES
+(1, 2022-10-10, 20, 7, 0, 0, 0),
+(2, 2022-10-24, 20, 7, 0, 0, 0),
+(1, 2022-10-24, 20, 7, 0, 0, 0),
+(2, 2022-11-08, 20, 7, 0, 0, 0),
+(1, 2022-11-08, 20, 7, 0, 0, 0);
