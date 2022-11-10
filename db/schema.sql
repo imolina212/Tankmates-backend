@@ -10,7 +10,10 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    username TEXT
+    username TEXT,
+    firstname TEXT,
+    lastname TEXT,
+    email TEXT
 );
 
 DROP TABLE IF EXISTS origin;

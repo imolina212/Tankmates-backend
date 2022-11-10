@@ -1,8 +1,10 @@
 \c tankmates_app;
 
-INSERT INTO users (username)
+INSERT INTO users (username, firstname, lastname, email)
 VALUES
-('isidromolina');
+('imolina212', 'Isidro', 'Molina', 'isidrom@tankmates.org'),
+('Nemo', 'Alexander', 'Gould', 'alexander@tankmates.org'),
+('Dory', 'Ellen', 'DeGeneres', 'ellend@tankmates.org');
 
 INSERT INTO origin (origin_name)
 VALUES
@@ -51,8 +53,8 @@ VALUES
 
 INSERT INTO tank_history (tank_id, waterchange_date, gallons_changed, ph, ammonia, nitrite, nitrate)
 VALUES
-(1, 2022-10-10, 20, 7, 0, 0, 0),
-(2, 2022-10-24, 20, 7, 0, 0, 0),
-(1, 2022-10-24, 20, 7, 0, 0, 0),
-(2, 2022-11-08, 20, 7, 0, 0, 0),
-(1, 2022-11-08, 20, 7, 0, 0, 0);
+(1, '2022-10-10', 20, 7, 0, 0, 0),
+(2, '2022-10-24', 20, 7, 0, 0, 0),
+(1, '2022-10-24', 20, 7, 0, 0, 0),
+(2, '2022-11-08', 20, 7, 0, 0, 0),
+(1, '2022-11-08', 20, 7, 0, 0, 0);
