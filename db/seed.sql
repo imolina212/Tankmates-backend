@@ -1,10 +1,13 @@
 \c tankmates_app;
 
-INSERT INTO users (username, firstname, lastname, email)
+INSERT INTO users (username, firstname, lastname, email, pic)
 VALUES
-('imolina212', 'Isidro', 'Molina', 'isidrom@tankmates.org'),
-('Nemo', 'Alexander', 'Gould', 'alexander@tankmates.org'),
-('Dory', 'Ellen', 'DeGeneres', 'ellend@tankmates.org');
+('imolina212', 'Isidro', 'Molina', 'isidrom@tankmates.org', '/userPics/jacques.webp'),
+('Nemo', 'Alexander', 'Gould', 'alexanderg@tankmates.org', '/userPics/nemo.webp'),
+('Dory', 'Ellen', 'DeGeneres', 'ellend@tankmates.org', '/userPics/dory.jpeg'),
+('Marlin', 'ALbert', 'Brooks', 'albertb@tankmates.org', '/userPics/marlin.jpeg'),
+('Squirt', 'Nicholas', 'Bird', 'nicholasb@tankmates.org', '/userPics/squirt.jpg'),
+('Mr.Ray', 'Bob', 'Peterson', 'bobp@tankmates.org', '/userPics/mr_ray.jpeg');
 
 INSERT INTO origin (origin_name)
 VALUES
@@ -44,12 +47,38 @@ VALUES
 INSERT INTO tanks (tank_name, user_id, size, is_saltwater, waterchange_frequency)
 VALUES
 ('Planted Tank', 1, 55, false, 4),
-('Display Tank', 1, 120, false, 4);
+('Display Tank', 1, 120, false, 4),
+('Main Tank', 2, 75, false, 4),
+('D Tank', 2, 120, false, 4),
+('Planted Tank', 3, 55, false, 4),
+('Display Tank', 4, 120, false, 4),
+('Main Tank', 5, 75, false, 4),
+('D Tank', 5, 120, false, 4),
+('Main Tank', 6, 75, false, 4),
+('D Tank', 3, 120, false, 4);
 
 INSERT INTO species_in_tank (tank_id, species_id)
 VALUES
 (1, 1),
-(2, 9);
+(2, 1),
+(3, 7),
+(4, 2),
+(5, 1),
+(6, 9),
+(7, 1),
+(8, 1),
+(9, 7),
+(10, 2),
+(1, 10),
+(2, 9),
+(3, 8),
+(4, 7),
+(5, 6),
+(6, 5),
+(7, 4),
+(8, 3),
+(9, 2),
+(10, 1);
 
 INSERT INTO tank_history (tank_id, waterchange_date, gallons_changed, ph, ammonia, nitrite, nitrate)
 VALUES

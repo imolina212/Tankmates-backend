@@ -13,7 +13,8 @@ CREATE TABLE users (
     username TEXT,
     firstname TEXT,
     lastname TEXT,
-    email TEXT
+    email TEXT UNIQUE,
+    pic TEXT
 );
 
 DROP TABLE IF EXISTS origin;
