@@ -10,11 +10,11 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    username TEXT UNIQUE,
+    username TEXT UNIQUE NOT NULL,
     firstname TEXT,
     lastname TEXT,
-    email TEXT UNIQUE,
-    user_password TEXT,
+    email TEXT UNIQUE NOT NULL,
+    user_password TEXT NOT NULL,
     pic TEXT
 );
 
