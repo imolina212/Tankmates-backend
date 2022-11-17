@@ -30,8 +30,29 @@ const loginUser = async (email, password) => {
 	}
 };
 
+const signupUser = async ({
+	username,
+	firstname,
+	lastname,
+	email,
+	password,
+}) => {
+	try {
+		const userId = await db.one(
+			`INSERT INTO users (username, firstname, lastname, email, user_password)
+			VALUES ($1, $2, $3, $4, $5)
+			RETURNING id`,
+			[username, firstname, lastname, email, password]
+		);
+		return userId;
+	} catch (err) {
+		console.log(err);
+	}
+};
+
 module.exports = {
 	getAllUsers,
 	getUser,
 	loginUser,
+	signupUser,
 };

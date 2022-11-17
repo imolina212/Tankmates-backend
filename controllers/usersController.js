@@ -1,7 +1,12 @@
 const express = require("express");
 const users = express.Router();
 
-const { getAllUsers, getUser, loginUser } = require("./../queries/users");
+const {
+	getAllUsers,
+	getUser,
+	loginUser,
+	signupUser,
+} = require("./../queries/users");
 
 users.get("/", async (_, response) => {
 	try {
@@ -43,6 +48,16 @@ users.get("/:userId", async (request, response) => {
 		} else {
 			response.status(400).json({ err: "User not found" });
 		}
+	} catch (err) {
+		response.status(500).json(err);
+	}
+});
+
+users.post("/signup", async (request, response) => {
+	try {
+		const userId = await signupUser(request.body);
+
+		response.status(200).json(userId);
 	} catch (err) {
 		response.status(500).json(err);
 	}
