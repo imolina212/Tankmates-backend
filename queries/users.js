@@ -18,11 +18,11 @@ const getUser = async (id) => {
 	}
 };
 
-const loginUser = async (email) => {
+const loginUser = async (email, password) => {
 	try {
 		const userId = await db.one(
-			"SELECT id FROM users WHERE email=$1",
-			email
+			"SELECT id FROM users WHERE email=$1 AND user_password=$2",
+			[email, password]
 		);
 		return userId;
 	} catch (err) {
