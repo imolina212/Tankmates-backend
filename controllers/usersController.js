@@ -3,9 +3,6 @@ const users = express.Router();
 
 const { getAllUsers, getUser, loginUser } = require("./../queries/users");
 
-const tanksController = require("./tanksController");
-users.use("/:userId/tanks", tanksController);
-
 users.get("/", async (_, response) => {
 	try {
 		const allUsers = await getAllUsers();
@@ -21,18 +18,18 @@ users.get("/", async (_, response) => {
 
 users.post("/login", async (request, response) => {
 	console.log("req + res", request.body);
-	const { email } = request.body;
+	const { email, password } = request.body;
 	console.log("email =>", email);
 	try {
-		const user = await loginUser(email);
+		const user = await loginUser(email, password);
 		if (user) {
 			response.status(200).json(user);
 		} else {
-			console.log("user", user);
-			response.status(400).json({ err: "User not found" });
+			response
+				.status(400)
+				.json({ err: "Email / Password combination not found" });
 		}
 	} catch (err) {
-		console.log(err);
 		response.status(500).json(err);
 	}
 });
