@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    username TEXT,
+    username TEXT UNIQUE,
     firstname TEXT,
     lastname TEXT,
     email TEXT UNIQUE,
