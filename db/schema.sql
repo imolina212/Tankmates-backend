@@ -14,6 +14,7 @@ CREATE TABLE users (
     firstname TEXT,
     lastname TEXT,
     email TEXT UNIQUE,
+    user_password TEXT,
     pic TEXT
 );
 

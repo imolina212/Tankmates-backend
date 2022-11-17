@@ -1,13 +1,13 @@
 \c tankmates_app;
 
-INSERT INTO users (username, firstname, lastname, email, pic)
+INSERT INTO users (username, firstname, lastname, email, user_password, pic)
 VALUES
-('imolina212', 'Isidro', 'Molina', 'isidrom@tankmates.org', '/userPics/jacques.webp'),
-('Nemo', 'Alexander', 'Gould', 'alexanderg@tankmates.org', '/userPics/nemo.webp'),
-('Dory', 'Ellen', 'DeGeneres', 'ellend@tankmates.org', '/userPics/dory.jpeg'),
-('Marlin', 'ALbert', 'Brooks', 'albertb@tankmates.org', '/userPics/marlin.jpeg'),
-('Squirt', 'Nicholas', 'Bird', 'nicholasb@tankmates.org', '/userPics/squirt.jpg'),
-('Mr.Ray', 'Bob', 'Peterson', 'bobp@tankmates.org', '/userPics/mr_ray.jpeg');
+('imolina212', 'Isidro', 'Molina', 'isidrom@tankmates.org', 'tankmatesAdmin', '/userPics/jacques.webp'),
+('Nemo', 'Alexander', 'Gould', 'alexanderg@tankmates.org', 'tankmates2', '/userPics/nemo.webp'),
+('Dory', 'Ellen', 'DeGeneres', 'ellend@tankmates.org', 'tankmates3', '/userPics/dory.jpeg'),
+('Marlin', 'ALbert', 'Brooks', 'albertb@tankmates.org', 'tankmates4', '/userPics/marlin.jpeg'),
+('Squirt', 'Nicholas', 'Bird', 'nicholasb@tankmates.org', 'tankmates5', '/userPics/squirt.jpg'),
+('Mr.Ray', 'Bob', 'Peterson', 'bobp@tankmates.org', 'tankmates6', '/userPics/mr_ray.jpeg');
 
 INSERT INTO origin (origin_name)
 VALUES
