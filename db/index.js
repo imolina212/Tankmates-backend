@@ -1,21 +1,12 @@
 const pgp = require("pg-promise")();
 require("dotenv").config();
 
-// const DB_URL = process.env.DB_URL;
+const { DATABASE_URL, PG_HOST, PG_PORT, PG_DATABASE, PG_USER, PG_PASSWORD } =
+	process.env;
 
-const {
-	DATABASE_URL,
-	PG_HOST,
-	PG_PORT,
-	PG_DATABASE,
-	PG_USER,
-	PG_PASSWORD,
-	DB_URL,
-} = process.env;
-
-const cn = DB_URL
+const cn = DATABASE_URL
 	? {
-			connectionString: DB_URL,
+			connectionString: DATABASE_URL,
 			max: 30,
 			ssl: {
 				rejectUnauthorized: false,
