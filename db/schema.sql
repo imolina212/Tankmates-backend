@@ -51,7 +51,7 @@ CREATE TABLE products (
     category TEXT,
     pic TEXT,
     rating DECIMAL,
-    price INT,
+    price DECIMAL,
     in_stock boolean,
     product_description TEXT
 );
