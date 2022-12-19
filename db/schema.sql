@@ -88,4 +88,18 @@ CREATE TABLE tank_history (
     nitrate INT
 );
 
+DROP TABLE IF EXISTS product_reviews;
+
+CREATE TABLE product_reviews (
+    id SERIAL PRIMARY KEY,
+    product_id INT REFERENCES products(id),
+    user_id INT REFERENCES users(id),
+    content TEXT,
+    rating INT,
+    title TEXT,
+    username TEXT,
+    email TEXT,
+    date_created DATE
+);
+
 
