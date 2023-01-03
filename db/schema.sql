@@ -49,12 +49,34 @@ CREATE TABLE products (
     product_name TEXT,
     brand TEXT,
     category TEXT,
-    pic TEXT,
+    pic TEXT[],
     rating DECIMAL,
     price DECIMAL,
     in_stock boolean,
     product_description TEXT
 );
+
+-- DROP TABLE IF EXISTS plants;
+
+-- CREATE TABLE plants {
+--     id SERIAL PRIMARY KEY,
+--     plant_name TEXT,
+--     scientific_name TEXT,
+--     plant_type TEXT,
+--     placement TEXT,
+--     light_requirement TEXT,
+--     price DECIMAL,
+--     skill_level TEXT,
+--     growth_rate TEXT,
+--     min_temp INT,
+--     max_temp INT,
+--     min_ph DECIMAL,
+--     max_ph DECIMAL,
+--     co2_requirement TEXT,
+--     origin INT REFERENCES origin(id) ON DELETE CASCADE,
+--     plant_description TEXT
+
+-- }
 
 DROP TABLE IF EXISTS tanks;
 
