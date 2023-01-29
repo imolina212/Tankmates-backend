@@ -124,4 +124,10 @@ CREATE TABLE product_reviews (
     date_created DATE
 );
 
+DROP TABLE IF EXISTS product_images;
 
+CREATE TABLE product_images (
+    id SERIAL PRIMARY KEY,
+    product_id INT REFERENCES products(id),
+    product_image TEXT
+)
