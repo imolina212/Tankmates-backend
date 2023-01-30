@@ -5,7 +5,7 @@ VALUES
 ('imolina212', 'Isidro', 'Molina', 'isidrom@tankmates.org', 'tankmatesAdmin', '/userPics/jacques.webp'),
 ('Nemo', 'Alexander', 'Gould', 'alexanderg@tankmates.org', 'tankmates2', '/userPics/nemo.webp'),
 ('Dory', 'Ellen', 'DeGeneres', 'ellend@tankmates.org', 'tankmates3', '/userPics/dory.jpeg'),
-('Marlin', 'ALbert', 'Brooks', 'albertb@tankmates.org', 'tankmates4', '/userPics/marlin.jpeg'),
+('Marlin', 'Albert', 'Brooks', 'albertb@tankmates.org', 'tankmates4', '/userPics/marlin.jpeg'),
 ('Squirt', 'Nicholas', 'Bird', 'nicholasb@tankmates.org', 'tankmates5', '/userPics/squirt.jpg'),
 ('Mr.Ray', 'Bob', 'Peterson', 'bobp@tankmates.org', 'tankmates6', '/userPics/mr_ray.jpeg');
 
@@ -131,4 +131,11 @@ VALUES
 INSERT INTO product_reviews (product_id, user_id, content, rating, title, username, email, date_created) 
 VALUES
 (1, 1, 'My shrimp loves these crushed up flakes.', 5, 'Excellent shrimp treat!', 'Isidro M.', 'isidrom@tankmates.org', '01/02/23'),
-(1, 2, 'These flakes are a great alternative when I am unable to feed live foods!', 5, 'Less waste, less cost, win win.', 'Alexander G.', 'alexanderg@tankmates.org', '01/02/23');
+(1, 2, 'These flakes are a great alternative when I am unable to feed live foods!', 5, 'Less waste, less cost, win win.', 'Alexander G.', 'alexanderg@tankmates.org', '01/02/23'),
+(1, 3, 'Best Flakes ever. My fish never leave a flake behind!', 5, 'Best Fish Food Flakes on the market', 'Ellen D.', 'isidrom@tankmates.org', '01/02/23'),
+(1, 4, 'These flakes are a amazing, my fish love these.', 5, 'Affordable and great quality!', 'Albert B.', 'alexanderg@tankmates.org', '01/02/23'),
+(1, 5, 'My goldfish go crazy over these flakes.', 5, 'My goldfish cant get enough', 'Nicholas B.', 'isidrom@tankmates.org', '01/02/23'),
+(1, 6, 'test', 2, 'test', 'test', 'test@tankmates.org', '01/02/23'),
+(1, 6, 'test', 3, 'test', 'test', 'test@tankmates.org', '01/02/23'),
+(1, 6, 'test', 4, 'test', 'test', 'test@tankmates.org', '01/02/23'),
+(4, 1, 'Good for the price, a little louder than i would like', 5, 'Get what you pay for', 'Isidro M.', 'isidromg@tankmates.org', '01/02/23');
