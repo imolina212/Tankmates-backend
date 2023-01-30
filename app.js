@@ -9,6 +9,7 @@ const tankLogsController = require("./controllers/tankLogsController");
 const tankmatesController = require("./controllers/tankmatesController");
 const tanksController = require("./controllers/tanksController");
 const usersController = require("./controllers/usersController");
+const productImagesController = require("./controllers/productImagesController");
 
 app.use(cors());
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use("/tanklogs", tankLogsController);
 app.use("/tankmates", tankmatesController);
 app.use("/tanks", tanksController);
 app.use("/users", usersController);
+app.use("/product-images", productImagesController);
 
 app.get("/", (_, response) => {
 	response.send("Welcome to Tankmates app");
