@@ -49,7 +49,7 @@ CREATE TABLE products (
     product_name TEXT,
     brand TEXT,
     category TEXT,
-    pic TEXT[],
+    pic TEXT,
     rating DECIMAL,
     price DECIMAL,
     in_stock boolean,
