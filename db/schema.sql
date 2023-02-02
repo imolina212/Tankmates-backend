@@ -42,42 +42,6 @@ CREATE TABLE species (
     max_length DECIMAL
 );
 
-DROP TABLE IF EXISTS products;
-
-CREATE TABLE products (
-    id SERIAL PRIMARY KEY,
-    product_name TEXT,
-    brand TEXT,
-    category TEXT,
-    pic TEXT,
-    rating DECIMAL,
-    price DECIMAL,
-    in_stock boolean,
-    product_description TEXT
-);
-
--- DROP TABLE IF EXISTS plants;
-
--- CREATE TABLE plants {
---     id SERIAL PRIMARY KEY,
---     plant_name TEXT,
---     scientific_name TEXT,
---     plant_type TEXT,
---     placement TEXT,
---     light_requirement TEXT,
---     price DECIMAL,
---     skill_level TEXT,
---     growth_rate TEXT,
---     min_temp INT,
---     max_temp INT,
---     min_ph DECIMAL,
---     max_ph DECIMAL,
---     co2_requirement TEXT,
---     origin INT REFERENCES origin(id) ON DELETE CASCADE,
---     plant_description TEXT
-
--- }
-
 DROP TABLE IF EXISTS tanks;
 
 CREATE TABLE tanks (
@@ -110,6 +74,29 @@ CREATE TABLE tank_history (
     nitrate INT
 );
 
+
+DROP TABLE IF EXISTS products;
+
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    product_name TEXT,
+    brand TEXT,
+    category TEXT,
+    pic TEXT,
+    rating DECIMAL,
+    price DECIMAL,
+    in_stock boolean,
+    product_description TEXT
+);
+
+DROP TABLE IF EXISTS product_images;
+
+CREATE TABLE product_images (
+    id SERIAL PRIMARY KEY,
+    product_id INT REFERENCES products(id),
+    product_image TEXT
+);
+
 DROP TABLE IF EXISTS product_reviews;
 
 CREATE TABLE product_reviews (
@@ -124,10 +111,22 @@ CREATE TABLE product_reviews (
     date_created DATE
 );
 
-DROP TABLE IF EXISTS product_images;
+DROP TABLE IF EXISTS plants;
 
-CREATE TABLE product_images (
+CREATE TABLE plants (
     id SERIAL PRIMARY KEY,
-    product_id INT REFERENCES products(id),
-    product_image TEXT
-)
+    plant_name TEXT,
+    scientific_name TEXT,
+    origin INT REFERENCES origin(id) ON DELETE CASCADE,
+    plant_type TEXT,
+    placement TEXT,
+    price DECIMAL,
+    in_stock BOOLEAN,
+    skill_level TEXT,
+    min_temp INT,
+    max_temp INT,
+    min_ph DECIMAL,
+    max_ph DECIMAL,
+    co2_requirement TEXT,
+    plant_description TEXT
+);
