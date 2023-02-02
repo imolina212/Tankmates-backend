@@ -130,3 +130,12 @@ CREATE TABLE plants (
     co2_requirement TEXT,
     plant_description TEXT
 );
+
+DROP TABLE IF EXISTS plant_images;
+
+CREATE TABLE plant_images (
+    id SERIAL PRIMARY KEY,
+    plant_id INT REFERENCES plants(id),
+    plant_image TEXT
+);
+
