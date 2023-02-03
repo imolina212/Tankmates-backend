@@ -117,6 +117,7 @@ CREATE TABLE plants (
     id SERIAL PRIMARY KEY,
     plant_name TEXT,
     scientific_name TEXT,
+    plant_image TEXT,
     origin INT REFERENCES origin(id) ON DELETE CASCADE,
     plant_type TEXT,
     placement TEXT,
