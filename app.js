@@ -13,6 +13,7 @@ const productImagesController = require("./controllers/productImagesController")
 const productReviewsController = require("./controllers/productReviewsController");
 const plantsController = require("./controllers/plantsController");
 const plantImagesController = require("./controllers/plantImagesController");
+const plantReviewsController = require("./controllers/plantReviewsController");
 
 app.use(cors());
 app.use(express.json());
@@ -27,6 +28,7 @@ app.use("/product-images", productImagesController);
 app.use("/product-reviews", productReviewsController);
 app.use("/plants", plantsController);
 app.use("/plant-images", plantImagesController);
+app.use("/plant-reviews", plantReviewsController);
 
 app.get("/", (_, response) => {
 	response.send("Welcome to Tankmates app");
