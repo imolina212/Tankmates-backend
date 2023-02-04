@@ -164,3 +164,11 @@ VALUES
 (4, '/plantImages/brazilian-pennywort-1.webp'),
 (4, '/plantImages/brazilian-pennywort-2.webp'),
 (4, '/plantImages/brazilian-pennywort-3.webp');
+
+INSERT INTO plant_reviews (plant_id, user_id, content, rating, title, username, email, date_created) 
+VALUES
+(1, 1, 'This plant goes really well in my tank. My Shrimp love grazing on this plant.', 5, 'Great hardy plant!', 'Isidro M.', 'isidrom@tankmates.org', '01/02/23'),
+(1, 2, 'Great hiding place for my fry and shrimps', 5, 'Great addition to any tank!', 'Alexander G.', 'alexanderg@tankmates.org', '01/02/23'),
+(1, 6, 'test', 2, 'test', 'test', 'test@tankmates.org', '01/02/23'),
+(1, 6, 'test', 3, 'test', 'test', 'test@tankmates.org', '01/02/23'),
+(1, 6, 'test', 4, 'test', 'test', 'test@tankmates.org', '01/02/23');

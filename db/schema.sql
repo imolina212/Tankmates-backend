@@ -140,3 +140,16 @@ CREATE TABLE plant_images (
     plant_image TEXT
 );
 
+DROP TABLE IF EXISTS plant_reviews;
+
+CREATE TABLE plant_reviews (
+    id SERIAL PRIMARY KEY,
+    plant_id INT REFERENCES plants(id),
+    user_id INT REFERENCES users(id),
+    content TEXT,
+    rating INT,
+    title TEXT,
+    username TEXT,
+    email TEXT,
+    date_created DATE
+);
