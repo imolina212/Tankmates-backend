@@ -35,7 +35,7 @@ newsletter.post("/", (req, res) => {
 		url: "https://us10.api.mailchimp.com/3.0/lists/12c4a1272f",
 		method: "POST",
 		headers: {
-			Authorization: "auth 04f88b7e572646cfb23ae142bd15b0c0-us10",
+			Authorization: "auth " + process.env.REACT_APP_MAILCHIMP_API_KEY,
 		},
 		body: postData,
 	};
