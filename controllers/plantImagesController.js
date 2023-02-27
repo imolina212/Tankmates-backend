@@ -5,10 +5,8 @@ const { getPlantImagesById } = require("../queries/plantImages.js");
 
 plantImages.get("/:id", async (request, response) => {
 	const plantId = request.params.id;
-	console.log("plantId -->", plantId);
 	try {
 		const images = await getPlantImagesById(plantId);
-
 		if (images) {
 			response.status(200).json(images);
 		} else {

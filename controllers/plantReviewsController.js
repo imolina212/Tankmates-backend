@@ -11,12 +11,12 @@ plantReviews.get("/:id", async (request, response) => {
 		const plantReviews = await getPlantReviewsById(request.params.id);
 
 		if (plantReviews.length === 0) {
-			response.status(500).json({ error: "No Plant Reviews Found" });
+			response.status(204).json({ message: "No Plant Reviews Found" });
 		} else {
 			response.status(200).json(plantReviews);
 		}
 	} catch (error) {
-		console.log(error);
+		throw error;
 	}
 });
 
