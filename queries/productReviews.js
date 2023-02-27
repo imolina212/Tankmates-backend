@@ -24,6 +24,21 @@ const createProductReview = async (product_id, user_id) => {
 	}
 };
 
+getAverageProductRatingById = async (product_id) => {
+	try {
+		const productRating = await db.one(
+			`SELECT AVG(rating)
+			FROM product_reviews
+			WHERE product_id = 1;`,
+			product_id
+		);
+		console.log("productRating -->", productRating);
+		return productRating;
+	} catch (error) {
+		throw error;
+	}
+};
+
 module.exports = {
 	getProductReviewsById,
 	createProductReview,
