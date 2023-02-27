@@ -79,14 +79,14 @@ DROP TABLE IF EXISTS products;
 
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
-    product_name TEXT,
+    name TEXT,
     brand TEXT,
     category TEXT,
-    pic TEXT,
+    image TEXT,
     rating DECIMAL,
     price DECIMAL,
     in_stock boolean,
-    product_description TEXT
+    description TEXT
 );
 
 DROP TABLE IF EXISTS product_images;
@@ -94,7 +94,7 @@ DROP TABLE IF EXISTS product_images;
 CREATE TABLE product_images (
     id SERIAL PRIMARY KEY,
     product_id INT REFERENCES products(id),
-    product_image TEXT
+    image TEXT
 );
 
 DROP TABLE IF EXISTS product_reviews;
@@ -115,9 +115,9 @@ DROP TABLE IF EXISTS plants;
 
 CREATE TABLE plants (
     id SERIAL PRIMARY KEY,
-    plant_name TEXT,
+    name TEXT,
     scientific_name TEXT,
-    plant_image TEXT,
+    image TEXT,
     origin INT REFERENCES origin(id) ON DELETE CASCADE,
     plant_type TEXT,
     placement TEXT,
@@ -129,7 +129,7 @@ CREATE TABLE plants (
     min_ph DECIMAL,
     max_ph DECIMAL,
     co2_requirement TEXT,
-    plant_description TEXT
+    description TEXT
 );
 
 DROP TABLE IF EXISTS plant_images;
@@ -137,7 +137,7 @@ DROP TABLE IF EXISTS plant_images;
 CREATE TABLE plant_images (
     id SERIAL PRIMARY KEY,
     plant_id INT REFERENCES plants(id),
-    plant_image TEXT
+    image TEXT
 );
 
 DROP TABLE IF EXISTS plant_reviews;
